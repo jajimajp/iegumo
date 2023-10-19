@@ -9,7 +9,7 @@ NodeJS のみで動く Todo アプリ
 ## How to run
 
 1. clone this repository
-2. start server with `node bin/iegumo`
+2. start server with `bin/iegumo`
 3. access http://localhost in your browser
 
 ## Rules
