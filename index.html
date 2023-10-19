@@ -8,15 +8,17 @@
 
 <body>
   <h1>Iegumo</h1>
-  <form method="post" action="/todos">
-    <label>
-      Add todo
-      <input type="text" name="label">
+  <div>
+    <form method="post" action="/todos">
+      <label for="new-todo">
+        Add todo
+      </label>
+      <input id="new-todo" type="text" name="label" placeholder="todo...">
       <input type="submit">
-    </label>
-  </form>
-  <h2>Todos</h2>
-  {IEGUMO_TODO_LIST}
+    </form>
+    <h2>Todos</h2>
+    {IEGUMO_TODO_LIST}
+  </div>
   <script>
     function completeTodo(id) {
       fetch(`/todos/${id}`, {
@@ -31,6 +33,60 @@
       document.location.reload();
     }
   </script>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px;
+      width: 600px;
+      border: 1px solid black;
+      border-radius: 8px;
+    }
+
+    form {
+      display: flex;
+      gap: 8px;
+      width: 100%;
+    }
+
+    input#new-todo {
+      flex: 1;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      list-style-type: none;
+      gap: 2px;
+      width: 100%;
+      margin: 0;
+      padding: 4px;
+    }
+
+    li {
+      border: 1px solid black;
+      border-radius: 8px;
+      display: flex;
+      gap: 4px;
+      padding: 4px 12px;
+    }
+
+    li>span {
+      flex: 1;
+    }
+
+    li>span.completed {
+      text-decoration: line-through;
+      color: lightgreen;
+    }
+  </style>
 </body>
 
 </html>

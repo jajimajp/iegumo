@@ -25,7 +25,7 @@ const todos = (function() {
   const toHtmlString = () => `
 <ul>
   ${get().map(todo => {
-    return `<li>${labelString(todo)} ${completeButtonString(todo.id)} ${deleteButtonString(todo.id)}</li>`;
+    return `<li>${labelString(todo)} ${todo.completed ? "" : completeButtonString(todo.id)} ${deleteButtonString(todo.id)}</li>`;
   }).join('\n  ')}
 </ul>
   `;
