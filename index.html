@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang='ja'>
+
+<head>
+  <meta charset="utf-8">
+  <title>Iegumo</title>
+</head>
+
+<body>
+  <h1>Iegumo</h1>
+  <form method="post" action="/todos">
+    <label>
+      Add todo
+      <input type="text" name="label">
+      <input type="submit">
+    </label>
+  </form>
+  <h2>Todos</h2>
+  {IEGUMO_TODO_LIST}
+  <script>
+    function completeTodo(id) {
+      fetch(`/todos/${id}`, {
+        method: 'PUT',
+      });
+      document.location.reload();
+    }
+    function deleteTodo(id) {
+      fetch(`/todos/${id}`, {
+        method: 'DELETE',
+      });
+      document.location.reload();
+    }
+  </script>
+</body>
+
+</html>
